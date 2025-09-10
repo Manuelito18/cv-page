@@ -13,7 +13,7 @@ body {
   max-width: 1000px;
   margin: 40px auto;
   background: #fff;
-  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.13);
   border-radius: 18px;
   overflow: hidden;
   border: 1.5px solid #e3eaf2;
@@ -29,6 +29,8 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-shadow: 0 4px 24px rgba(0, 102, 204, 0.18);
+  border-right: 4px solid #4fc3f7;
 }
 
 .sidebar::after {
@@ -56,20 +58,27 @@ body {
 }
 
 .sidebar h1 {
-  font-size: 24px;
-  margin: 0 0 10px 0;
+  font-size: 26px;
+  margin: 0 0 12px 0;
   font-weight: 700;
   text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #4fc3f7 0%, #0066cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sidebar .location,
 .sidebar .contact,
 .sidebar .links {
-  font-size: 15px;
-  margin-bottom: 14px;
+  font-size: 16px;
+  margin-bottom: 16px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 0;
+  box-shadow: 0 1px 6px rgba(0, 102, 204, 0.07);
 }
 
 .sidebar .links a {
@@ -80,8 +89,9 @@ body {
   margin: 4px 8px;
   padding: 4px 12px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.12);
-  transition: background 0.2s;
+  background: linear-gradient(90deg, #4fc3f7 60%, #0066cc 100%);
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 6px rgba(0, 102, 204, 0.1);
 }
 .sidebar .links a:hover {
   background: #fff;
@@ -102,29 +112,34 @@ body {
   background: linear-gradient(120deg, #f4f7fa 60%, #e3eaf2 100%);
 }
 
+/* Secciones con tarjetas y color */
 section {
   margin-bottom: 32px;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.04);
+  background: linear-gradient(120deg, #e3eaf2 80%, #f4f7fa 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 102, 204, 0.1);
   padding: 24px 22px 18px 22px;
-  border-left: 4px solid #4fc3f7;
-  transition: box-shadow 0.2s;
+  border-left: 5px solid #4fc3f7;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid #0066cc;
 }
 section:hover {
-  box-shadow: 0 6px 24px rgba(0, 102, 204, 0.1);
+  box-shadow: 0 6px 24px rgba(0, 102, 204, 0.13);
+  border-left: 5px solid #0066cc;
 }
 
 section h2 {
-  font-size: 19px;
+  font-size: 20px;
   margin: 0 0 14px 0;
   color: #0066cc;
   letter-spacing: 1px;
-  border-bottom: 2px solid #e3eaf2;
+  border-bottom: 2px solid #4fc3f7;
   padding-bottom: 6px;
-  font-weight: 600;
-  background: linear-gradient(90deg, #e3eaf2 60%, #f4f7fa 100%);
+  font-weight: 700;
+  background: linear-gradient(90deg, #e3eaf2 60%, #4fc3f7 100%);
   border-radius: 6px 6px 0 0;
+  box-shadow: 0 1px 6px rgba(0, 102, 204, 0.04);
 }
 
 ul {
@@ -151,18 +166,21 @@ ul {
   border-radius: 18px;
   font-size: 15px;
   font-weight: 500;
-  box-shadow: 0 1px 6px rgba(0, 102, 204, 0.07);
-  transition: background 0.2s;
+  box-shadow: 0 1px 6px rgba(0, 102, 204, 0.1);
+  border: 1px solid #4fc3f7;
+  transition: background 0.2s, color 0.2s;
 }
 .skills span:hover {
   background: #4fc3f7;
   color: #fff;
+  border: 1px solid #0066cc;
 }
 
 strong {
   color: #222;
 }
 
+/* Mejor responsividad y color en móvil */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
@@ -173,42 +191,163 @@ strong {
   .sidebar {
     width: 100%;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
-    padding: 24px 12px;
+    padding: 24px 8px;
     border-radius: 0;
-    min-height: 170px;
+    min-height: unset;
+    background: linear-gradient(90deg, #0066cc 60%, #4fc3f7 100%);
   }
   .sidebar .photo {
     margin-right: 18px;
     margin-bottom: 0;
+    width: 90px;
+    height: 110px;
+  }
+  .sidebar h1,
+  .sidebar .location,
+  .sidebar .contact,
+  .sidebar .links {
+    text-align: left;
+    width: auto;
+    word-break: break-word;
   }
   .main {
-    padding: 24px 10px;
+    padding: 18px 6px;
   }
   section {
-    padding: 18px 10px 12px 10px;
-    margin-bottom: 18px;
+    padding: 14px 8px 12px 8px;
+    margin-bottom: 16px;
+    border-left: 4px solid #4fc3f7;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 102, 204, 0.09);
+    background: linear-gradient(120deg, #e3eaf2 80%, #f4f7fa 100%);
   }
 }
 
 @media (max-width: 600px) {
+  .container {
+    margin: 6px auto;
+    border-radius: 8px;
+  }
   .sidebar {
     flex-direction: column;
     align-items: center;
-    padding: 18px 6px;
-    min-height: unset;
+    padding: 12px 4px;
+    background: linear-gradient(135deg, #0066cc 60%, #4fc3f7 100%);
   }
   .sidebar .photo {
+    width: 70px;
+    height: 85px;
     margin-right: 0;
-    margin-bottom: 12px;
-    width: 90px;
-    height: 110px;
+    margin-bottom: 10px;
   }
   .main {
-    padding: 10px 2vw;
+    padding: 6px 2vw;
   }
   section {
     padding: 10px 4px 8px 4px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-left: 3px solid #4fc3f7;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #e3eaf2 80%, #f4f7fa 100%);
   }
+  section h2 {
+    font-size: 16px;
+    padding-bottom: 4px;
+  }
+  .skills span {
+    padding: 6px 10px;
+    font-size: 13px;
+    margin: 3px 3px 3px 0;
+  }
+  ul {
+    padding-left: 14px;
+  }
+}
+
+/* Estilos para impresión */
+@media print {
+  body,
+  html {
+    background: #fff !important;
+    color: #222 !important;
+    max-width: 100vw;
+    overflow-x: visible;
+  }
+  .container {
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    max-width: 100%;
+    border-radius: 0;
+  }
+  .sidebar {
+    width: 100% !important;
+    padding: 16px 0 12px 0 !important;
+    background: #0066cc !important;
+    color: #fff !important;
+    display: block !important;
+    text-align: center !important;
+    border-radius: 0 !important;
+    position: static !important;
+  }
+  .sidebar .photo {
+    display: block;
+    margin: 0 auto 10px auto !important;
+    width: 90px !important;
+    height: 110px !important;
+    border: 3px solid #fff !important;
+  }
+  .sidebar h1,
+  .sidebar .location,
+  .sidebar .contact,
+  .sidebar .links {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+    word-break: break-word !important;
+  }
+  .main {
+    padding: 0 !important;
+    background: none !important;
+  }
+  section {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    background: none !important;
+    padding: 12px 0 8px 0 !important;
+    margin-bottom: 10px !important;
+    page-break-inside: avoid;
+  }
+  section h2 {
+    background: none !important;
+    color: #0066cc !important;
+    border-bottom: 1px solid #4fc3f7 !important;
+    font-size: 17px !important;
+    padding-bottom: 2px !important;
+  }
+  .skills span {
+    background: #e3eaf2 !important;
+    color: #0066cc !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+    padding: 4px 8px !important;
+    margin: 2px 2px 2px 0 !important;
+  }
+  a {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+    word-break: break-all !important;
+  }
+}
+
+/* Evita el desbordamiento horizontal */
+body,
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
